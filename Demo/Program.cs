@@ -9,7 +9,7 @@ namespace Demo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Product Review using Linq\n\n");
+            Console.WriteLine("Welcome to Product Review using Linq");
             List<ProductReview> list = new List<ProductReview>();
             list.Add(new ProductReview() { UserID = 1, ProductID = 101, Rating = 5, Review = "Best", isLike = true });
             list.Add(new ProductReview() { UserID = 7, ProductID = 107, Rating = 4.5, Review = "Best", isLike = true });
@@ -19,14 +19,13 @@ namespace Demo
             list.Add(new ProductReview() { UserID = 5, ProductID = 105, Rating = 1, Review = "Worst", isLike = false });
             list.Add(new ProductReview() { UserID = 6, ProductID = 106, Rating = 0, Review = "Worst", isLike = false });
 
-            Console.WriteLine("userId" + " ProcuctId" + " Rating" + " Review"+"\t\tIsLiked");
-            foreach(var item in list)
-            {
-                Console.WriteLine(item.UserID +"\t"+ item.ProductID+"\t "+item.Rating+" \t"+item.Review+"\t\t"+item.isLike);
-            }
-
             Management management = new Management();
+            //UC1
+            management.GetAllRecords(list);
+            //UC2
             management.TopRecords(list);
+            //UC3
+            management.UC3_GetRecords(list);
 
         }
     }
