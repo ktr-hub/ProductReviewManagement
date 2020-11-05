@@ -106,5 +106,10 @@ namespace LinqDemo
                 Console.WriteLine(record.ProductID + "\t\t" + record.Review);
             }
         }
+
+        public void UC7_GetRecords(List<ProductReview> listProductReview)
+        {
+            UC5_GetRecords(listProductReview);
+        }
     }
 }

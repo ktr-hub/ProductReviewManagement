@@ -34,6 +34,8 @@ namespace Demo
             management.UC5_GetRecords(list);
             //UC6
             management.UC6_GetRecords(list);
+            //UC7
+            management.UC7_GetRecords(list);
         }
     }
 }
