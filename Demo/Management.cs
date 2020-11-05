@@ -54,11 +54,26 @@ namespace LinqDemo
                           select reviews;
 
             Console.WriteLine("\n\nSelected Records having rating greater than 3 and having product Id either 101/104/109 are : \n");
+            Console.WriteLine("userId" + " ProcuctId" + " Rating" + " Review" + "\t\tIsLiked");
             foreach (var item in records)
             {
-                Console.WriteLine("userId" + " ProcuctId" + " Rating" + " Review" + "\t\tIsLiked");
                 Console.WriteLine(item.UserID + "\t" + item.ProductID + "\t " + item.Rating + " \t" + item.Review + "\t\t" + item.isLike);
 
+            }
+        }
+
+        /// <summary>
+        /// UC4
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void UC4_GetCount(List<ProductReview> listProductReview)
+        {
+            Console.WriteLine("\n\nCount of records : \n");
+
+            var records = listProductReview.GroupBy(x => x.ProductID).Select(x=>new { ProductID=x.Key,Count=x.Count()});
+            foreach(var record in records)
+            {
+                Console.WriteLine(record.ProductID + "--->" + record.Count);
             }
         }
     }
