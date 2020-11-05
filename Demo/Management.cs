@@ -76,5 +76,20 @@ namespace LinqDemo
                 Console.WriteLine(record.ProductID + "--->" + record.Count);
             }
         }
+
+        /// <summary>
+        /// UC5
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void UC5_GetRecords(List<ProductReview> listProductReview)
+        {
+            var records = listProductReview.Select((x, y) =>(x.ProductID,x.Review));
+
+            Console.WriteLine("\n\nProductID\tReview  \n");
+            foreach (var record in records)
+            {
+                Console.WriteLine(record.ProductID + "\t\t" + record.Review);
+            }
+        }
     }
 }
