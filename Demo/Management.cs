@@ -145,5 +145,26 @@ namespace LinqDemo
                 
             }
         }
+
+        /// <summary>
+        /// UC9
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void UC9_GetRecordsWhoLiked(List<ProductReview> listProductReview)
+        {
+            var records = from reviews in dataTable.AsEnumerable()
+                          where (reviews.Field<string>("isLike").Equals("True"))
+                          select reviews;
+            Console.WriteLine("\n\nProducts liked so far :- \n");
+            Console.WriteLine("userId" + " ProcuctId" + " Rating" + " Review" + "\t\tIsLiked");
+
+            foreach (var item in records)
+            {
+                Console.WriteLine(item.Field<string>("UserID") + "\t " + item.Field<string>("ProductID") + "\t" +
+                    item.Field<string>("Rating") + " \t" + item.Field<string>("Review") + "\t\t" + item.Field<string>("isLike"));
+
+            }
+
+        }
     }
 }

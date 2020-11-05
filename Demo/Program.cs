@@ -38,6 +38,8 @@ namespace Demo
             management.UC7_GetRecords(list);
             //UC8
             management.UC8_CreateDataTable(list);
+            //UC9
+            management.UC9_GetRecordsWhoLiked(list);
         }
     }
 }
