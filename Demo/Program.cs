@@ -25,6 +25,9 @@ namespace Demo
                 Console.WriteLine(item.UserID +"\t"+ item.ProductID+"\t "+item.Rating+" \t"+item.Review+"\t\t"+item.isLike);
             }
 
+            Management management = new Management();
+            management.TopRecords(list);
+
         }
     }
 }
