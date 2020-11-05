@@ -91,5 +91,20 @@ namespace LinqDemo
                 Console.WriteLine(record.ProductID + "\t\t" + record.Review);
             }
         }
+
+        /// <summary>
+        /// UC5
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void UC6_GetRecords(List<ProductReview> listProductReview)
+        {
+            var records = listProductReview.Select((x, y) => (x.ProductID, x.Review)).Skip(5);
+
+            Console.WriteLine("\n\nProductID\tReview  \n");
+            foreach (var record in records)
+            {
+                Console.WriteLine(record.ProductID + "\t\t" + record.Review);
+            }
+        }
     }
 }
