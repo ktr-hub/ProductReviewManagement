@@ -93,7 +93,7 @@ namespace LinqDemo
         }
 
         /// <summary>
-        /// UC5
+        /// UC6
         /// </summary>
         /// <param name="listProductReview"></param>
         public void UC6_GetRecords(List<ProductReview> listProductReview)
@@ -106,10 +106,44 @@ namespace LinqDemo
                 Console.WriteLine(record.ProductID + "\t\t" + record.Review);
             }
         }
-
+        
+        /// <summary>
+        /// UC7
+        /// </summary>
+        /// <param name="listProductReview"></param>
         public void UC7_GetRecords(List<ProductReview> listProductReview)
         {
             UC5_GetRecords(listProductReview);
+        }
+
+        /// <summary>
+        /// UC8
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void UC8_CreateDataTable(List<ProductReview> listProductReview)
+        {
+            dataTable.Columns.Add("ProductID");
+            dataTable.Columns.Add("UserID");
+            dataTable.Columns.Add("Rating");
+            dataTable.Columns.Add("Review");
+            dataTable.Columns.Add("isLike");
+            Console.WriteLine("\n\nData Table created\n");
+            foreach (var list in listProductReview)
+            {
+                dataTable.Rows.Add(list.ProductID, list.UserID, list.Rating, list.Review, list.isLike);
+            }
+
+            Console.WriteLine("Following data is inserted into datatable");
+            Console.WriteLine("userId" + " ProcuctId" + " Rating" + " Review" + "\t\tIsLiked");
+           
+            var records = from Reviews in dataTable.AsEnumerable()
+                          select Reviews;
+            foreach (var item in records)
+            {
+                Console.WriteLine(item.Field<string>("UserID") + "\t " + item.Field<string>("ProductID") + "\t" +
+                    item.Field<string>("Rating") + " \t" + item.Field<string>("Review") + "\t\t" + item.Field<string>("isLike"));
+                
+            }
         }
     }
 }

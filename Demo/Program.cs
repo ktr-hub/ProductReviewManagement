@@ -36,6 +36,8 @@ namespace Demo
             management.UC6_GetRecords(list);
             //UC7
             management.UC7_GetRecords(list);
+            //UC8
+            management.UC8_CreateDataTable(list);
         }
     }
 }
